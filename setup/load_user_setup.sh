@@ -17,3 +17,6 @@ printf 'pref("general.config.filename", "exegol.cfg");\npref("general.config.obs
 
 # Seed Firefox extensions (FoxyProxy Burp proxy, Wappalyzer consent), editable afterwards
 /opt/my-resources/setup/firefox/seed_extensions.sh
+
+# Install Burp extensions (BApp Store)
+python3 /opt/my-resources/setup/burp/install_bapps.py

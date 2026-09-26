@@ -1,0 +1,6 @@
+# BApp Store extensions installed in Burp (UUID from https://portswigger.net/bappstore/<uuid>)
+26aaa5ded2f74beea19e2ed8345a93dd  JWT Editor
+65033cbd2c344fbabe57ac060b5dd100  Hackvertor
+296e9a0730384be4b2fffef7b4e19b1f  InQL
+17d2949a985c4b7ca092728dba871943  Param Miner
+9952290f04ed4f628e624d0aa9dccebc  MCP Server
