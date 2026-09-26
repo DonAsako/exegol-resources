@@ -137,7 +137,7 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.fixup.domainsuffixwhitelist.sakado": {
+            "browser.fixup.domainsuffixwhitelist": {
                 "Value": true,
                 "Status": "default"
             },
