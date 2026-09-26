@@ -20,3 +20,6 @@ printf 'pref("general.config.filename", "exegol.cfg");\npref("general.config.obs
 
 # Install Burp extensions (BApp Store)
 python3 /opt/my-resources/setup/burp/install_bapps.py
+
+# Fetch drop-on-target binaries (pspy, ligolo agents) into bin/
+/opt/my-resources/setup/fetch_bin.sh

@@ -43,3 +43,7 @@ Files, in `setup/burp/`:
 
 - `bapps.txt`: extensions to install (BApp Store UUIDs)
 - `install_bapps.py`: installs them like the BApp Store does, run by `load_user_setup.sh`
+
+## Drop-on-target binaries
+
+`setup/fetch_bin.sh` downloads pspy (`pspy64`, `pspy32`, and their static `s` variants) and the Ligolo-ng agents (`ligolo-agent-linux`, `ligolo-agent.exe`) into `bin/`, which is shared across all containers. Idempotent: only fetches what's missing. Edit versions and list at the top of the script; keep the Ligolo version in sync with Exegol's proxy (`ligolo-ng -version`).
