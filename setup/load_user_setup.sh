@@ -8,3 +8,12 @@ set -e
 # Exegol also features a set of supported customization a user can make.
 # The /opt/supported_setups.md file lists the supported configurations that can be made easily.
 
+# Install uv (https://astral.sh/uv)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Set firefox preferences
+cp /opt/my-resources/setup/firefox/exegol.cfg /usr/lib/firefox-esr/exegol.cfg
+printf 'pref("general.config.filename", "exegol.cfg");\npref("general.config.obscure_value", 0);\n' > /usr/lib/firefox-esr/defaults/pref/autoconfig.js
+
+# Seed Firefox extensions (FoxyProxy Burp proxy, Wappalyzer consent), editable afterwards
+/opt/my-resources/setup/firefox/seed_extensions.sh

@@ -1,0 +1,213 @@
+{
+    "policies": {
+        "DisableTelemetry": true,
+        "DisplayBookmarksToolbar": "always",
+        "ManagedBookmarks": [
+            {
+                "toplevel_name": "Local"
+            },
+            {
+                "name": "AD",
+                "children": [
+                    {
+                        "url": "http://127.0.0.1:1030/ui/login",
+                        "name": "BloodHound-CE"
+                    }
+                ]
+            },
+            {
+                "name": "WEB",
+                "children": [
+                    {
+                        "url": "http://127.0.0.1:8080/",
+                        "name": "Burp (CA cert)"
+                    }
+                ]
+            },
+            {
+                "name": "Crypto",
+                "children": [
+                    {
+                        "url": "file:///opt/tools/CyberChef/CyberChef.html",
+                        "name": "CyberChef"
+                    }
+                ]
+            }
+        ],
+        "UserMessaging": {
+            "WhatsNew": false,
+            "ExtensionRecommendations": false,
+            "FeatureRecommendations": false,
+            "UrlbarInterventions": false,
+            "SkipOnboarding": true,
+            "MoreFromMozilla": false
+        },
+        "ExtensionSettings": {
+            "foxyproxy@eric.h.jung": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi",
+                "default_area": "navbar",
+                "private_browsing": true
+            },
+            "{c3c10168-4186-445c-9c5b-63f12b8e2c87}": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/cookie-editor/latest.xpi",
+                "default_area": "navbar",
+                "private_browsing": true
+            },
+            "wappalyzer@crunchlabz.com": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/wappalyzer/latest.xpi",
+                "default_area": "navbar",
+                "private_browsing": true
+            },
+            "{f1423c11-a4e2-4709-a0f8-6d6a68c83d08}": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/hacktools/latest.xpi",
+                "default_area": "navbar",
+                "private_browsing": true
+            }
+        },
+        "Certificates": {
+            "Install": [
+                "/opt/tools/firefox/cacert.der"
+            ]
+        },
+        "NoDefaultBookmarks": true,
+        "DNSOverHTTPS": {
+            "Enabled": false,
+            "Locked": true
+        },
+        "CaptivePortal": false,
+        "DisableFirefoxStudies": true,
+        "NetworkPrediction": false,
+        "PasswordManagerEnabled": false,
+        "OfferToSaveLogins": false,
+        "DontCheckDefaultBrowser": true,
+        "OverrideFirstRunPage": "",
+        "OverridePostUpdatePage": "",
+        "FirefoxHome": {
+            "Search": true,
+            "TopSites": false,
+            "SponsoredTopSites": false,
+            "Highlights": false,
+            "Pocket": false,
+            "SponsoredPocket": false,
+            "Stories": false,
+            "SponsoredStories": false
+        },
+        "Preferences": {
+            "network.proxy.allow_hijacking_localhost": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.malware.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.safebrowsing.phishing.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.safebrowsing.downloads.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.safebrowsing.downloads.remote.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "dom.push.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.fixup.domainsuffixwhitelist.htb": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.fixup.domainsuffixwhitelist.thm": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.fixup.domainsuffixwhitelist.local": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.fixup.domainsuffixwhitelist.lab": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.fixup.domainsuffixwhitelist.sakado": {
+                "Value": true,
+                "Status": "default"
+            },
+            "dom.security.https_first": {
+                "Value": false,
+                "Status": "default"
+            },
+            "dom.security.https_first_schemeless": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.xul.error_pages.expert_bad_cert": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.aboutConfig.showWarning": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.tabs.warnOnClose": {
+                "Value": false,
+                "Status": "default"
+            },
+            "extensions.activeThemeID": {
+                "Value": "firefox-compact-dark@mozilla.org",
+                "Status": "default"
+            },
+            "extensions.unifiedExtensions.button.always_visible": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.trending": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.recentsearches": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.trimURLs": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.trimHttps": {
+                "Value": false,
+                "Status": "default"
+            },
+            "network.IDN_show_punycode": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.translations.enable": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.toolbars.bookmarks.showOtherBookmarks": {
+                "Value": false,
+                "Status": "default"
+            }
+        },
+        "DisableProfileImport": true,
+        "SearchEngines": {
+            "Default": "DuckDuckGo"
+        },
+        "DisableFirefoxAccounts": true,
+        "SearchSuggestEnabled": false,
+        "FirefoxSuggest": {
+            "WebSuggestions": false,
+            "SponsoredSuggestions": false,
+            "ImproveSuggest": false
+        }
+    }
+}

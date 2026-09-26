@@ -1,0 +1,18 @@
+{
+    "wappalyzer@crunchlabz.com": {
+        "termsAccepted": true,
+        "tracking": false
+    },
+    "{c3c10168-4186-445c-9c5b-63f12b8e2c87}": {
+        "all_options": {
+            "advancedCookies": true,
+            "devtoolsEnabled": true,
+            "animationsEnabled": true,
+            "exportFormat": "ask",
+            "extraInfo": "nothing",
+            "theme": "auto",
+            "buttonBarTop": false,
+            "adsEnabled": false
+        }
+    }
+}
