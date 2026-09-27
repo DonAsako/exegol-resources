@@ -2,3 +2,39 @@
 # This file is sourced in /root/.zshrc file.
 # Alternatively, the /opt/my-resources/setup/load_user_setup.sh file can be used to operate the change once (instead of sourcing a file for each zsh instance)
 
+
+# addhost <ip> <name>...: add names to /etc/hosts, no duplicates
+# /etc/hosts is bind-mounted by Docker, so it is rewritten in place (no sed -i)
+addhost() {
+  if (( $# < 2 )); then echo "usage: addhost <ip> <name>..." >&2; return 1; fi
+  local ip=$1; shift
+  local n cur
+  for n in "$@"; do
+    cur=$(awk -v n="$n" '!/^[[:space:]]*#/ { for (i = 2; i <= NF; i++) if ($i == n) { print $1; exit } }' /etc/hosts)
+    if [[ -n $cur ]]; then
+      [[ $cur == "$ip" ]] || echo "$n already points to $cur, skipped" >&2
+      continue
+    fi
+    if awk -v ip="$ip" '$1 == ip { f = 1 } END { exit !f }' /etc/hosts; then
+      local tmp=$(awk -v ip="$ip" -v n="$n" '$1 == ip && !d { $0 = $0 " " n; d = 1 } 1' /etc/hosts)
+      printf '%s\n' "$tmp" > /etc/hosts
+    else
+      printf '%s\t%s\n' "$ip" "$n" >> /etc/hosts
+    fi
+  done
+  awk -v ip="$ip" '$1 == ip' /etc/hosts
+}
+
+# urlenc / urldec / b64 / b64d: take args, or stdin when piped
+_arg_or_stdin() { if (( $# )); then printf '%s' "$*"; else cat; fi }
+urlenc() { _arg_or_stdin "$@" | python3 -c 'import sys, urllib.parse as u; print(u.quote(sys.stdin.read().rstrip("\n"), safe=""))'; }
+urldec() { _arg_or_stdin "$@" | python3 -c 'import sys, urllib.parse as u; print(u.unquote_plus(sys.stdin.read().rstrip("\n")))'; }
+b64()    { _arg_or_stdin "$@" | base64 -w0; [[ ! -t 1 ]] || echo; }
+b64d()   { _arg_or_stdin "$@" | base64 -d; [[ ! -t 1 ]] || echo; }
+
+# copy: send stdin (or args) to the clipboard, e.g. `cat hash.txt | copy`
+copy() {
+  if command -v xclip >/dev/null; then _arg_or_stdin "$@" | xclip -selection clipboard
+  elif command -v xsel >/dev/null; then _arg_or_stdin "$@" | xsel -ib
+  else echo "copy: no xclip/xsel (is X11 sharing enabled?)" >&2; return 1; fi
+}

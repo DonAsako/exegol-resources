@@ -23,6 +23,14 @@ declare -A ARCHIVE=(
   [ligolo-agent.exe]="https://github.com/nicocha30/ligolo-ng/releases/download/v$LIGOLO_VER/ligolo-ng_agent_${LIGOLO_VER}_windows_amd64.zip|agent.exe"
 )
 
+# Versions changed since last fetch: drop the managed binaries so they get re-downloaded
+STAMP="$BIN/.versions"
+want="pspy=$PSPY_VER ligolo=$LIGOLO_VER"
+if [[ -f "$STAMP" && "$(cat "$STAMP")" != "$want" ]]; then
+  echo "versions changed, refreshing binaries"
+  for name in "${!RAW[@]}" "${!ARCHIVE[@]}"; do rm -f "$BIN/$name"; done
+fi
+
 for name in "${!RAW[@]}"; do
   [[ -f "$BIN/$name" ]] && continue
   echo "fetching $name"
@@ -43,3 +51,4 @@ for name in "${!ARCHIVE[@]}"; do
   [[ -f "$tmp/$member" ]] && mv "$tmp/$member" "$BIN/$name" && chmod +x "$BIN/$name"
 done
 rm -rf "$tmp"
+echo "$want" > "$STAMP"
